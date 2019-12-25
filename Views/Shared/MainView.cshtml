@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table, td {
+            border: 1px solid grey;
+            border-collapse:collapse;
+        }
+        td{
+            padding: 4px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <tbody>
+            <tr>
+                <td>Controller</td>
+                <td>@ViewBag.Controller</td>
+            </tr>
+            <tr>
+                <td>Action</td>
+                <td>@ViewBag.Action</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
