@@ -15,5 +15,11 @@ namespace WebApplication9.Controllers
             ViewBag.Action = RouteData.Values["action"].ToString();
             return View("MainView");
         }
+        public ActionResult Newsetup()
+        {
+            ViewBag.Controller = RouteData.Values["controller"].ToString();
+            ViewBag.Action = RouteData.Values["action"].ToString();
+            return View("MainView");
+        }
     }
 }

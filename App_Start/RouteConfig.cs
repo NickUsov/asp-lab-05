@@ -13,7 +13,12 @@ namespace WebApplication9
         public static void RegisterRoutes(RouteCollection routes)
         {
             //routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapRoute(
+                name: "NewRoute",
+                url: "usersettings/{id}",
+                defaults: new { controller = "User", action = "Settings" },
+                constraints: new {id=new RangeRouteConstraint(1,999)}
+            );
             routes.MapRoute(
                name: "ShopBuy",
                url: "newOrder/{controller}/{action}",
@@ -26,10 +31,16 @@ namespace WebApplication9
                 constraints: new { action = new MaxLengthRouteConstraint(5) }
             );
             routes.MapRoute(
+                name: "RouteAdmin",
+                url: "Admin/{action}/{id}",
+                defaults: new { controller = "Admin", action = "Index", id = UrlParameter.Optional },
+                constraints: new { action = @"\w*setup$" }
+            );
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                constraints: new { controller = "Shop|Admin|User" }
+                constraints: new { controller = "Shop|User" }
             );
         }
     }
